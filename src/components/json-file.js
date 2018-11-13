@@ -1,9 +1,15 @@
 import React from 'react'
 
 export default ({ json, error }) => {
-  if (error) { return error }
-  if (!json) { return null }
-  if (!json.length) { return 'invalid file' }
+  if (error) {
+    return error
+  }
+  if (!json) {
+    return null
+  }
+  if (!json.length) {
+    return 'invalid file'
+  }
   return (
     <ul>
       {json.map((o, i) => (

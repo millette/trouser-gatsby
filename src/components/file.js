@@ -4,12 +4,12 @@ import React, { Component } from 'react'
 import JsonFile from '../components/json-file'
 
 export default class File extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
-    this.state = { }
+    this.state = {}
   }
 
-  async componentDidUpdate (prevProps) {
+  async componentDidUpdate(prevProps) {
     if (prevProps.publicURL === this.props.publicURL) {
       return
     }
@@ -23,14 +23,17 @@ export default class File extends Component {
     }
   }
 
-  render () {
-    if (!this.props.absolutePath) { return null }
+  render() {
     return (
-      <div>
-        <h3>{this.props.dir} / {this.props.name}</h3>
-        <h4>{this.props.absolutePath}</h4>
-        <JsonFile error={this.state.error} json={this.state.json} />
-      </div>
+      !this.props.absolutePath || (
+        <div>
+          <h3>
+            {this.props.dir} / {this.props.name}
+          </h3>
+          <h4>{this.props.absolutePath}</h4>
+          <JsonFile error={this.state.error} json={this.state.json} />
+        </div>
+      )
     )
   }
 }
