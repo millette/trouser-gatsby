@@ -4,11 +4,13 @@ import Layout from '../components/layout'
 
 export default ({ data: { allFile: { group } } }) => {
   console.log(group)
+  const tree = group.map(({ fieldValue, edges }) => ({ fieldValue, stuff: edges.map(({ node: { relativePath } }) => relativePath) }))
   return (
     <Layout>
       <h1>Hi from the second page</h1>
-      <p>Welcome to page 2</p>
-      <Link to="/">Go back to the homepage</Link>
+      <Link to="/">Go back to the homepage</Link>{' '}
+      <Link to="/page-3">Go to page 3</Link>
+      <pre>{JSON.stringify(tree, null, '  ')}</pre>
       <pre>{JSON.stringify(group, null, '  ')}</pre>
     </Layout>
   )
