@@ -1,9 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
+  "name": "trouser",
   "version": "0.0.0",
   "dependencies": {
-    "gatsby": "^2.0.47",
+    "gatsby": "^2.0.48",
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-json": "^2.1.5",
