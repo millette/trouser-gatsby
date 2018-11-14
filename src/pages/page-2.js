@@ -7,7 +7,6 @@ export default ({
     allFile: { group },
   },
 }) => {
-  console.log(group)
   const tree = group.map(({ fieldValue, edges }) => ({
     fieldValue,
     stuff: edges.map(({ node: { relativePath } }) => relativePath),
