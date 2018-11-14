@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
 
 // self
-import File from '../components/file'
+import File from "../components/file"
 
 export default class Files extends Component {
   constructor(props) {
