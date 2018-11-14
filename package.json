@@ -33,10 +33,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop --port 8001",
-    "start": "npm run develop",
-    "format666": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gatsby develop --port 8001"
   },
   "devDependencies": {
     "husky": "^1.1.4",

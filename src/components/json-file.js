@@ -51,7 +51,7 @@ export default class JsonFile extends Component {
     return (
       <div>
         <p>Selected: {Object.keys(this.state.idx).length}</p>
-        {Object.keys(this.state.idx).length > 0 && <button>Submit</button>}
+        <button disabled={!Object.keys(this.state.idx).length}>Submit</button>
         <table>
           <Header keys={Object.keys(json[0])} />
           <tbody>
