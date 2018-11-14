@@ -1,6 +1,6 @@
-import { Link, graphql } from 'gatsby'
-import React from 'react'
-import Layout from '../components/layout'
+import { Link, graphql } from "gatsby"
+import React from "react"
+import Layout from "../components/layout"
 
 export default ({
   data: {
@@ -14,10 +14,10 @@ export default ({
   return (
     <Layout>
       <h1>Hi from the second page</h1>
-      <Link to="/">Go back to the homepage</Link>{' '}
+      <Link to="/">Go back to the homepage</Link>{" "}
       <Link to="/page-3">Go to page 3</Link>
-      <pre>{JSON.stringify(tree, null, '  ')}</pre>
-      <pre>{JSON.stringify(group, null, '  ')}</pre>
+      <pre>{JSON.stringify(tree, null, "  ")}</pre>
+      <pre>{JSON.stringify(group, null, "  ")}</pre>
     </Layout>
   )
 }
