@@ -4,7 +4,7 @@ import React, { Component } from "react"
 import JsonFile from "../components/json-file"
 
 const normalize = (x) => {
-  if (!x.length) {
+  if (!x.length || x.find((o) => typeof o !== "object" || Array.isArray(o))) {
     throw new Error("Invalid file")
   }
 
