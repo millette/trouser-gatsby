@@ -1,5 +1,11 @@
 # Trouser
 
+## Requirements
+
+Node 10.13.0 (LTS at the time of writing this) or above is required, so is npm. You'll need git to fetch the source code and a modern web browser with JavaScript enabled to use the web app.
+
+## Installation
+
 ```sh
 git clone https://github.com/millette/trouser.git
 cd trouser/
@@ -23,6 +29,8 @@ Put your json files in trouser/custom/f2/ and subdirectories. Standard json file
 ```
 
 Note that `id` doesn't have a special meaning.
+
+## Usage
 
 To launch the local web app:
 
