@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
 
 const Header = ({ keys }) => (
   <thead>
@@ -27,6 +27,11 @@ export default class JsonFile extends Component {
       idx: {},
     }
     this.clickRow = this.clickRow.bind(this)
+    this.submit = this.submit.bind(this)
+  }
+
+  submit() {
+    this.props.submit(Object.keys(this.state.idx).map(Number))
   }
 
   clickRow(a) {
@@ -51,13 +56,18 @@ export default class JsonFile extends Component {
     return (
       <div>
         <p>Selected: {Object.keys(this.state.idx).length}</p>
-        <button disabled={!Object.keys(this.state.idx).length}>Submit</button>
+        <button
+          onClick={this.submit}
+          disabled={!Object.keys(this.state.idx).length}
+        >
+          Submit
+        </button>
         <table>
           <Header keys={Object.keys(json[0])} />
           <tbody>
             {json.map((o, i) => (
               <Row
-                style={{ background: this.state.idx[i] && 'yellow' }}
+                style={{ background: this.state.idx[i] && "yellow" }}
                 click={this.clickRow}
                 i={i}
                 key={`json-file-line-${i}`}

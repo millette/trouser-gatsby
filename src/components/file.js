@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
 
 // self
-import JsonFile from '../components/json-file'
+import JsonFile from "../components/json-file"
 
-const normalize = x => {
+const normalize = (x) => {
   if (!x.length) {
-    throw new Error('Invalid file')
+    throw new Error("Invalid file")
   }
 
-  const keys = x.map(o => Object.keys(o)).reduce((a, b) => [...a, ...b], [])
+  const keys = x.map((o) => Object.keys(o)).reduce((a, b) => [...a, ...b], [])
 
   const z = Array.from(new Set(keys)).sort()
-  return x.map(b => {
+  return x.map((b) => {
     const ret = {}
-    z.forEach(a => {
+    z.forEach((a) => {
       ret[a] = b[a]
     })
     return ret
@@ -24,6 +24,29 @@ export default class File extends Component {
   constructor(props) {
     super(props)
     this.state = {}
+    this.submit = this.submit.bind(this)
+  }
+
+  submit(a) {
+    // this.setState({ a })
+    // console.log(a, this.props, this.state.json)
+    const blob = new Blob(
+      // this.state.json
+      [JSON.stringify(a)],
+      {
+        type: "application/json",
+      },
+    )
+    if (this.state.a) {
+      URL.revokeObjectURL(this.state.a)
+    }
+    this.setState({ a: URL.createObjectURL(blob) })
+  }
+
+  componentWillUnmount() {
+    if (this.state.a) {
+      URL.revokeObjectURL(this.state.a)
+    }
   }
 
   async componentDidUpdate(prevProps) {
@@ -32,11 +55,11 @@ export default class File extends Component {
     }
 
     try {
-      this.setState({ json: false, error: 'read...' })
+      this.setState({ json: false, error: "read..." })
       const res = await fetch(this.props.publicURL)
-      this.setState({ error: 'json...' })
+      this.setState({ error: "json..." })
       const json2 = await res.json()
-      this.setState({ error: 'norm...' })
+      this.setState({ error: "norm..." })
       const json = normalize(json2)
       this.setState({ json, error: false })
     } catch (e) {
@@ -52,7 +75,18 @@ export default class File extends Component {
             {this.props.dir} / {this.props.name}
           </h3>
           <h4>{this.props.absolutePath}</h4>
-          <JsonFile error={this.state.error} json={this.state.json} />
+          <p>
+            {this.state.a && (
+              <a download={this.props.base} href={this.state.a}>
+                dl
+              </a>
+            )}
+          </p>
+          <JsonFile
+            submit={this.submit}
+            error={this.state.error}
+            json={this.state.json}
+          />
         </div>
       )
     )
