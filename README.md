@@ -4,6 +4,8 @@
 
 Node 10.13.0 (LTS at the time of writing this) or above is required, so is npm. You'll need git to fetch the source code and a modern web browser with JavaScript enabled to use the web app.
 
+https://github.com/mklement0/n-install
+
 ## Installation
 
 ```sh
