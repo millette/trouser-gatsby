@@ -53,13 +53,11 @@ export default class JsonFile extends Component {
       return null
     }
 
+    const len = Object.keys(this.state.idx).length
     return (
       <div>
-        <p>Selected: {Object.keys(this.state.idx).length}</p>
-        <button
-          onClick={this.submit}
-          disabled={!Object.keys(this.state.idx).length}
-        >
+        <p>Selected: {len}</p>
+        <button onClick={this.submit} disabled={!len}>
           Submit
         </button>
         <table>
