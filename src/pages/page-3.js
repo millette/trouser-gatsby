@@ -1,10 +1,10 @@
 // npm
-import React, { Component } from 'react'
-import { Link, graphql } from 'gatsby'
+import React, { Component } from "react"
+import { Link, graphql } from "gatsby"
 
 // self
-import Layout from '../components/layout'
-import Files from '../components/files'
+import Layout from "../components/layout"
+import Files from "../components/files"
 
 export default class P3 extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ export default class P3 extends Component {
     return (
       <Layout>
         <h1>Welcome to page 3</h1>
-        <Link to="/">Go back to the homepage</Link>{' '}
+        <Link to="/">Go back to the homepage</Link>{" "}
         <Link to="/page-2">Go to page 2</Link>
         <ul>
           {this.group.map(({ fieldValue, totalCount, edges }, i) => (
@@ -29,11 +29,11 @@ export default class P3 extends Component {
               key={`dir-${fieldValue}-${i}`}
               onClick={this.onClick.bind(
                 this,
-                fieldValue || '.',
-                edges.map(({ node }) => node)
+                fieldValue || ".",
+                edges.map(({ node }) => node),
               )}
             >
-              {fieldValue || '.'} <small>({totalCount})</small>
+              {fieldValue || "."} <small>({totalCount})</small>
             </li>
           ))}
         </ul>
@@ -56,6 +56,7 @@ export const query = graphql`
             absolutePath
             publicURL
             name
+            base
           }
         }
       }
