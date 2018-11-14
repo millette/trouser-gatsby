@@ -3,19 +3,17 @@ import React, { Component } from 'react'
 // self
 import JsonFile from '../components/json-file'
 
-const normalize = (x) => {
+const normalize = x => {
   if (!x.length) {
     throw new Error('Invalid file')
   }
 
-  const keys = x
-    .map((o) => Object.keys(o))
-    .reduce((a, b) => [...a, ...b], [])
+  const keys = x.map(o => Object.keys(o)).reduce((a, b) => [...a, ...b], [])
 
   const z = Array.from(new Set(keys)).sort()
-  return x.map((b) => {
-    const ret = { }
-    z.forEach((a) => {
+  return x.map(b => {
+    const ret = {}
+    z.forEach(a => {
       ret[a] = b[a]
     })
     return ret

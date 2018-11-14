@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 
-
 const Header = ({ keys }) => (
   <thead>
     <tr>
       {keys.sort().map((o, i) => (
-        <th key={`header-key-${i}`}>
-          {o}
-        </th>
+        <th key={`header-key-${i}`}>{o}</th>
       ))}
     </tr>
   </thead>
@@ -15,24 +12,24 @@ const Header = ({ keys }) => (
 
 const Row = ({ style, o, i, click }) => (
   <tr style={style} onClick={click}>
-    {Object.keys(o).sort().map((k, i2) => (
-      <td key={`cell-key-${i2}`}>
-        {JSON.stringify(o[k])}
-      </td>
-    ))}
+    {Object.keys(o)
+      .sort()
+      .map((k, i2) => (
+        <td key={`cell-key-${i2}`}>{JSON.stringify(o[k])}</td>
+      ))}
   </tr>
 )
 
 export default class JsonFile extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
-      idx: {}
+      idx: {},
     }
     this.clickRow = this.clickRow.bind(this)
   }
 
-  clickRow (a) {
+  clickRow(a) {
     const idx = { ...this.state.idx }
     if (idx[a.currentTarget.rowIndex - 1]) {
       delete idx[a.currentTarget.rowIndex - 1]
@@ -42,7 +39,7 @@ export default class JsonFile extends Component {
     this.setState({ idx })
   }
 
-  render () {
+  render() {
     const { json, error } = this.props
     if (error) {
       return error
@@ -54,14 +51,18 @@ export default class JsonFile extends Component {
     return (
       <div>
         <p>Selected: {Object.keys(this.state.idx).length}</p>
-        {(Object.keys(this.state.idx).length > 0) && (
-          <button>Submit</button>
-        )}
+        {Object.keys(this.state.idx).length > 0 && <button>Submit</button>}
         <table>
           <Header keys={Object.keys(json[0])} />
           <tbody>
             {json.map((o, i) => (
-              <Row style={{background: (this.state.idx[i] && 'yellow')}} click={this.clickRow} i={i} key={`json-file-line-${i}`} o={o} />
+              <Row
+                style={{ background: this.state.idx[i] && 'yellow' }}
+                click={this.clickRow}
+                i={i}
+                key={`json-file-line-${i}`}
+                o={o}
+              />
             ))}
           </tbody>
         </table>
