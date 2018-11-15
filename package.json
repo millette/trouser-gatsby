@@ -12,7 +12,7 @@
     "node": ">=10.13.0"
   },
   "dependencies": {
-    "gatsby": "^2.0.48",
+    "gatsby": "^2.0.50",
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-json": "^2.1.5",
