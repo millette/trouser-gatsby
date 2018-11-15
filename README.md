@@ -4,9 +4,19 @@
 
 Node 10.13.0 (LTS at the time of writing this) or above is required, so is npm. You'll need git to fetch the source code and a modern web browser with JavaScript enabled to use the web app.
 
+To install node (and npm) on GNU/Linux or MacOS:
+
 https://github.com/mklement0/n-install
 
+```sh
+sudo apt-get install git make
+curl -L https://git.io/n-install | bash
+# and start a new terminal/shell
+```
+
 ## Installation
+
+In a new terminal/shell (if you just installed n-install):
 
 ```sh
 git clone https://github.com/millette/trouser.git
