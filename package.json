@@ -1,8 +1,8 @@
 {
-  "name": "trouser",
+  "name": "trouser-gatsby",
   "version": "0.0.0",
   "license": "AGPL-3.0",
-  "repository": "millette/trouser",
+  "repository": "millette/trouser-gatsby",
   "author": {
     "name": "Robin Millette",
     "email": "robin@millette.info",
@@ -39,7 +39,7 @@
   "devDependencies": {
     "gatsby-plugin-no-sourcemaps": "^2.0.1",
     "husky": "^1.1.4",
-    "lint-staged": "^8.0.4",
+    "lint-staged": "^8.0.5",
     "prettier": "^1.15.2"
   }
 }
